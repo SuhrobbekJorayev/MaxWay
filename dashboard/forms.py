@@ -1,14 +1,16 @@
 from django import forms
 from food.models import *
 
+
 class CategoryForm(forms.ModelForm):
     class Meta:
-        model=Category
+        model = Category
         fields = "__all__"
         widgets = {
             "title": forms.TextInput(attrs={'class': 'form-control'}),
 
         }
+
 
 class ProductForm(forms.ModelForm):
     class Meta:
@@ -21,11 +23,12 @@ class ProductForm(forms.ModelForm):
             "price": forms.TextInput(attrs={'class': 'form-control'}),
             "category": forms.Select(attrs={'class': 'form-control'}),
             "image": forms.FileInput(attrs={
-                        'class': 'form-control',
-                        'onchange': 'loadFile(event)'
-                    }
+                'class': 'form-control',
+                'onchange': 'loadFile(event)'
+            }
             ),
-    }
+        }
+
 
 class UserForm(forms.ModelForm):
     class Meta:
